@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "rafiki-pet-care",
+    "slug": "rafiki-pet-care",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
