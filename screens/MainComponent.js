@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
-import LandingPage from "./LandingPage";
+import LandingPage from "./LandingScreen";
+import HomeScreen from "./HomeScreen";
 
 {/*Bottom Navigator variable*/}
 const Tab = createBottomTabNavigator();
@@ -19,11 +20,20 @@ const MainComponent = () => {
                 screenOptions={screenOptions}
             >
                 <Tab.Screen 
-                    name= "Home"
+                    name= "Welcome"
                     component={LandingPage}
                     options={{
                         tabBarIcon: ({  color, size}) => {
-                            <Icon name="Home" size={size} color={color} />
+                            return <Icon name="emoji-people" size={size} color={color} />
+                        }
+                    }}
+                />
+                <Tab.Screen 
+                    name= "Home"
+                    component={HomeScreen}
+                    options={{
+                        tabBarIcon: ({  color, size}) => {
+                            return <Icon name="home" size={size} color={color} />
                         }
                     }}
                 />

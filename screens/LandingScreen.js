@@ -19,25 +19,37 @@ const LandingPage = () => {
                 <Text style={styles.title}>Rafiki Pet Care</Text>
             </View>
             
-            {/*Horizontal scroll Pet images*/}
+            {/*First Row Pet images*/}
             <FlatList 
-                date={petImages}
-                horizontal
+            key={"row-1"}
+                data={petImages.slice(0, 2)}
+                numColumns={2}
                 keyExtractor={(item, index) => index.toString()}
-                renderItem={({item}) => {
+                renderItem={({item}) => (
                     <Image source={item} style={styles.petImage} />
-                }}
-                showsHorizontalScrollIndicator={false}
-                style={styles.imageRow}
+                    )}
+                contentContainerStyle={styles.imageGrid}
             />
 
             {/*Hero Section*/}
             <View style={styles.heroSection}>
                 <Text style={styles.heroText}>
                     Caring for your pets has never been easier!
-                    Rafiki Pet CAre helps you keep track of your furry friends' needs with ease.
+                    Rafiki Pet Care helps you keep track of your furry friends' needs with ease.
                 </Text>
             </View>
+
+            {/*Second Row Pet images*/}
+            <FlatList 
+                key={"row-2"}
+                data={petImages.slice(2, 4)}
+                numColumns={2}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({item}) => (
+                    <Image source={item} style={styles.petImage} />
+                    )}
+                contentContainerStyle={styles.imageGrid}
+            />
 
             {/*Explore Button*/}
                 <TouchableOpacity style={styles.exploreButton}>
@@ -64,29 +76,41 @@ const styles = StyleSheet.create({
         color: "#333",
         marginLeft: 10
     },
-    imageRow: {
-        marginTop: 10,
-        paddingHorizontal: 10
+    imageGrid: {
+        justifyContent: "center",
+        alignItems: "center"
     },
     petImage: {
-        width: 80,
-        height: 80,
-        marginHorizontal: 5,
-        borderRadius: 10
+        width: 140,
+        height: 140,
+        marginHorizontal: 28,
+        borderRadius: 10,
+        marginTop: 25
     },
     heroSection: {
+        marginTop: 10,
+        marginHorizontal: 20,
+        padding: 40,
+        backgroundColor: "#FFB07C",
+        borderRadius: 10,
+        elevation: 10
+    },
+    heroText: {
         fontSize: 16,
         color: "#FFF",
         textAlign: "center",
         lineHeight: 24
     },
     exploreButton: {
-        marginHorizontal: 50,
+        marginHorizontal: 100,
         marginTop: 20,
-        padding: 15,
+        marginBottom: 50,
+        paddingTop: 15,
+        paddingBottom: 15,
         backgroundColor: "#FFB07C",
         borderRadius: 10,
-        alignItems: "center"
+        alignItems: "center",
+        elevation: 5
     },
     exploreButtonText: {
         color: "#FFF",
