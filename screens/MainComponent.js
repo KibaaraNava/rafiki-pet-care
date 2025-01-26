@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
 import LandingPage from "./LandingScreen";
 import HomeScreen from "./HomeScreen";
+import ExploreScreen from "./ExploreScreen";
 
 {/*Bottom Navigator variable*/}
 const Tab = createBottomTabNavigator();
@@ -25,7 +26,9 @@ const MainComponent = () => {
                     options={{
                         tabBarIcon: ({  color, size}) => {
                             return <Icon name="emoji-people" size={size} color={color} />
-                        }
+                        },
+                        headerShown: false,
+                        tabBarStyle: {display: "none"}
                     }}
                 />
                 <Tab.Screen 
@@ -34,7 +37,18 @@ const MainComponent = () => {
                     options={{
                         tabBarIcon: ({  color, size}) => {
                             return <Icon name="home" size={size} color={color} />
-                        }
+                        },
+                        headerShown:false
+                    }}
+                />
+                <Tab.Screen 
+                    name= "Explore"
+                    component={ExploreScreen}
+                    options={{
+                        tabBarIcon: ({ color, size}) => {
+                        return <Icon name="explore" size={size} color={color} />
+                        },
+                        headerShown: false
                     }}
                 />
             </Tab.Navigator>

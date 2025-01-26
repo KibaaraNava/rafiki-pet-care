@@ -1,114 +1,131 @@
 import { Icon } from "react-native-elements";
-import { Image, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 
 const petImages = [
-    require("../assets/images/pet-cat.jpeg"),
-    require("../assets/images/pet-dog.jpeg"),
-    require("../assets/images/pet-duck.jpeg"),
-    require("../assets/images/pet-rabbit.jpeg")
+    require("../assets/images/rafiki-main-logo-removebg-preview.png")
 ];
 
 const LandingPage = () => {
 
+    {/*hook to access navigation */}
+    const navigation = useNavigation();
+
     return (
-        <View style={styles.container}>
-            {/*Header*/}
-            <View style={styles.header}>
-                <Icon name="pets" size={40} color="#FFB07C"/>
-                <Text style={styles.title}>Rafiki Pet Care</Text>
-            </View>
-            
-            {/*First Row Pet images*/}
-            <FlatList 
-            key={"row-1"}
-                data={petImages.slice(0, 2)}
-                numColumns={2}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({item}) => (
-                    <Image source={item} style={styles.petImage} />
-                    )}
-                contentContainerStyle={styles.imageGrid}
-            />
+        <SafeAreaView style={styles.container}>
+            <ScrollView contentContainerStyle={styles.scrollContent}>
 
-            {/*Hero Section*/}
-            <View style={styles.heroSection}>
-                <Text style={styles.heroText}>
-                    Caring for your pets has never been easier!
-                    Rafiki Pet Care helps you keep track of your furry friends' needs with ease.
-                </Text>
-            </View>
+                {/*app name */}
+                <Text style={styles.appName}>Rafiki Pet Care</Text>
 
-            {/*Second Row Pet images*/}
-            <FlatList 
-                key={"row-2"}
-                data={petImages.slice(2, 4)}
-                numColumns={2}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({item}) => (
-                    <Image source={item} style={styles.petImage} />
-                    )}
-                contentContainerStyle={styles.imageGrid}
-            />
+                {/*Pet image */}
+                <Image source={petImages[0, 1]} style={styles.petImage} />
+                
+                {/*Pet images*/}
+                <View style={styles.imageContainer}>
+                    {petImages.map((image, index) => (
+                        <Image key={index} source={image} style={styles.petImage} />
+                    ))}
+                </View>
 
-            {/*Explore Button*/}
-                <TouchableOpacity style={styles.exploreButton}>
-                    <Text style={styles.exploreButtonText}>Explore The App</Text>
-                </TouchableOpacity>
-        </View>
+                {/*Hero Section*/}
+                <View style={styles.heroSection}>
+                    <Text style={styles.heroText}>
+                        Caring for your pets has never been easier!
+                        Rafiki Pet Care helps you keep track of your furry friends' needs with ease.
+                    </Text>
+                </View>
+
+                {/*Buttons */}
+                <View style={styles.buttonsContainer}>
+
+                    {/*Explore Button*/}
+                    <TouchableOpacity 
+                    style={styles.exploreButton}
+                    onPress={() => navigation.navigate("Home")}
+                    >
+                            <Icon name="explore" size={30} color={"#FFF"}/>
+                            <Text style={styles.exploreButtonText}>Explore</Text>
+                        </TouchableOpacity>
+
+                        <Text style={styles.heroText}>
+                            OR
+                        </Text>
+
+                        {/*Login and Sign-In Button*/}
+                        <TouchableOpacity style={styles.loginButton}>
+                            <Icon name="login" size={30} color={"#FFF"}/>
+                            <Text style={styles.exploreButtonText}>Login</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFF5EE"
+        backgroundColor: "#D3D3D3"
     },
-    header: {
-        flexDirection: "row",
+    scrollContent: {
         alignItems: "center",
-        padding: 20,
-        backgroundColor: "#FFE4C4"
+        paddingBottom: 50
     },
-    title: {
-        fontSize: 24,
+    appName: {
+        fontSize: 28,
         fontWeight: "bold",
-        color: "#333",
-        marginLeft: 10
+        color: "#FFB07C",
+        marginTop: 50,
+        textAlign: "center"
     },
-    imageGrid: {
+    imageContainer: {
+        flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center"
     },
     petImage: {
-        width: 140,
-        height: 140,
-        marginHorizontal: 28,
-        borderRadius: 10,
-        marginTop: 25
+        width: 250,
+        height: 250,
+        borderRadius: 15,
+        marginTop: -120
     },
     heroSection: {
-        marginTop: 10,
-        marginHorizontal: 20,
-        padding: 40,
-        backgroundColor: "#FFB07C",
-        borderRadius: 10,
-        elevation: 10
+        marginTop: 40,
+        width: "90%",
+        padding: 20,
+        backgroundColor: "#FFb07C",
+        borderRadius: 15,
+        alignItems: "center",
+        elevation: 5
     },
     heroText: {
         fontSize: 16,
+        fontWeight: "bold",
         color: "#FFF",
         textAlign: "center",
-        lineHeight: 24
+        lineHeight: 24,
+        marginBottom: 20
+    },
+    buttonsContainer: {
+        alignItems: "center",
+        marginTop: 40,
+        width: "90%"
     },
     exploreButton: {
-        marginHorizontal: 100,
-        marginTop: 20,
-        marginBottom: 50,
-        paddingTop: 15,
-        paddingBottom: 15,
-        backgroundColor: "#FFB07C",
-        borderRadius: 10,
+        marginBottom: 15,
+        paddingVertical : 8,
+        width: "70%",
+        backgroundColor: "#20B2AA",
+        borderRadius: 15,
+        alignItems: "center",
+        elevation: 5
+    },
+    loginButton: {
+        width: "70%",
+        paddingVertical: 8,
+        backgroundColor: "#20B2AA",
+        borderRadius: 15,
         alignItems: "center",
         elevation: 5
     },

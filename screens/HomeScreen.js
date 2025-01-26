@@ -1,71 +1,150 @@
 import { Icon } from "react-native-elements";
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, SafeAreaView, StyleSheet, ScrollView, Text, View } from 'react-native';
 
 const HomeScreen = () => {
     
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Icon name="home" size={40} color="#FFB07C" />
-                <Text style={styles.title}>Home</Text>
-            </View>
+        <SafeAreaView style={styles.container}>
+            <ScrollView contentContainerStyle={styles.scrollContainer}>
+                <View style={styles.header}>
+                    <Icon name="home" size={40} color="#FFB07C" />
+                    <Text style={styles.title}>Home</Text>
+                </View>
 
-            {/*CTA card with Registration Button */}
-            <View style={styles.registerCard}>
-                <Icon name="account-circle" size={60} color="#FFF" />
-                <Text style={styles.registerCardText}>
-                    Sign up to manage your pet's health and schedule easily with Rafiki Pet Care!
-                </Text>
-                <TouchableOpacity style={styles.registerButton}>
-                    <Text style={styles.registerButtontext}>
-                        Register Now
+                    {/*CTA card with Registration Button */}
+                <View style={styles.registerCard}>
+                    <Icon name="account-circle" size={60} color="#FFF" />
+                    <Text style={styles.registerCardText}>
+                        Sign up to manage your pet's health and schedule easily with Rafiki Pet Care!
                     </Text>
-                </TouchableOpacity>
-            </View>
-
-            {/*Services section */}
-            <View style={styles.servicesSection}>
-                <View style={styles.servicesHeader}>
-                    <Text style={styles.servicesText}>Services</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.seeMoreText}>See More</Text>
+                    <TouchableOpacity style={styles.registerButton}>
+                        <Text style={styles.registerButtontext}>
+                            Register Now
+                        </Text>
                     </TouchableOpacity>
                 </View>
-            {/*Services cards row */}
-                <View style={styles.cardsRow}>
-                        <View style={styles.card}>
-                            <Icon name="pets" size={40} color="#FFb07C" />
-                            <Text style={styles.cardText}>Pet Profile Management</Text>
+
+                {/*Section area */}
+                <View style={styles.sectionContainer}>
+                    {/*Articles section */}
+                    <View style={styles.articlesSection}>
+                        <View style={styles.articlesHeader}>
+                            <Text style={styles.servicesText}>
+                                Articles
+                            </Text>
+                            <TouchableOpacity>
+                                <Text style={styles.seeMoreText}>View More</Text>
+                            </TouchableOpacity>
                         </View>
-                        <View style={styles.card}>
-                                <Icon name="healing" size={40} color="#FFb07C" />
-                                <Text style={styles.cardText}>Pet HealthCare and Checkup</Text>
+                        {/*Articles card row */}
+                        <View style={styles.cardsRow}>
+                            <View style={styles.card}>
+                                <Icon name="book" size={20} color="#FFb07C" reverse/>
+                                <Text style={styles.cardText}>Understanding Pet Nutrition</Text>
+                            </View>
                         </View>
+
+                        <View style={styles.cardsRow}>
+                            <View style={styles.card}>
+                                <Icon name="book" size={20} color="#FFb07C" reverse/>
+                                <Text style={styles.cardText}>Training Your Pet</Text>
+                            </View>
+                        </View>
+                    </View>
+
+
+                        {/*Services section */}
+                    <View style={styles.servicesSection}>
+                        <View style={styles.servicesHeader}>
+                            <Text style={styles.servicesText}>Services</Text>
+                            <TouchableOpacity>
+                                <Text style={styles.seeMoreText}>View More</Text>
+                            </TouchableOpacity>
+                        </View>
+                        {/*Services cards row */}
+                        <View style={styles.cardsRow}>
+                                <View style={styles.card}>
+                                    <Icon name="pets" size={20} color="#FFb07C" reverse/>
+                                    <Text style={styles.cardText}>Pet Profile Management</Text>
+                                </View>
+                        </View>
+
+                        <View style={styles.cardsRow}>
+                                <View style={styles.card}>
+                                        <Icon name="healing" size={20} color="#FFb07C" reverse/>
+                                        <Text style={styles.cardText}>Pet HealthCare and Checkup</Text>
+                                </View>
+                        </View>
+
+                        <View style={styles.cardsRow}>
+                                <View style={styles.card}>
+                                    <Icon name="fitness-center" size={20} color="#FFb07C" reverse/>
+                                    <Text style={styles.cardText}>Pet Diet And Exercise</Text>
+                                </View>
+                        </View>
+
+                        <View style={styles.cardsRow}>
+                                <View style={styles.card}>
+                                    <Icon name="lightbulb" size={20} color="#FFb07C" reverse/>
+                                    <Text style={styles.cardText}>Pet Care Tips</Text>
+                                </View>
+                        </View>
+                    </View>
+
+                    
+
+                    {/*Courses section */}
+                    <View style={styles.coursesSection}>
+                        <View style={styles.coursesHeader}>
+                            <Text style={styles.servicesText}>
+                                Courses
+                            </Text>
+                            <TouchableOpacity>
+                                <Text style={styles.seeMoreText}>View More</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        {/*Articles card row */}
+                        <View style={styles.cardsRow}>
+                            <View style={styles.card}>
+                                <Icon name="local_hospital" size={20} color="#FFb07C" />
+                                <Text style={styles.cardText}>Pet First Aid</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.cardsRow}>
+                            <View style={styles.card}>
+                                <Icon name="spa" size={20} color="#FFb07C" reverse/>
+                                <Text style={styles.cardText}>Advanced Pet Care</Text>
+                            </View>
+                        </View>
+                    </View>
                 </View>
-                <View style={styles.cardsRow}>
-                        <View style={styles.card}>
-                            <Icon name="fitness-center" size={40} color="#FFb07C" />
-                            <Text style={styles.cardText}>Pet Diet And Exercise</Text>
-                        </View>
-                        <View style={styles.card}>
-                            <Icon name="lightbulb" size={40} color="#FFb07C" />
-                            <Text style={styles.cardText}>Pet Care Tips</Text>
-                        </View>
-                </View>
-            </View>
-        </View>
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFF5EE"
+        backgroundColor: "#D3D3D3"
+    },
+    sectionContainer: {
+        backgroundColor: "#20B2AA",
+        marginTop: 30,
+        paddingHorizontal: 20,
+        borderRadius: 15,
+        height: "100%"
+    },
+    scrollContainer: {
+        paddingBottom: 20
     },
     header: {
         flexDirection: "row",
         alignItems: "center",
-        padding: 20,
+        paddingTop: 60,
+        paddingBottom: 20,
         backgroundColor: "#FFE4C4"
     },
     title: {
@@ -105,9 +184,29 @@ const styles = StyleSheet.create({
     },
     servicesSection: {
         marginTop: 30,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+    },
+    articlesSection: {
+        marginTop: 30,
+        paddingHorizontal: 20,
+    },
+    coursesSection: {
+        marginTop: 30,
+        paddingHorizontal: 20,
     },
     servicesHeader: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 20
+    },
+    articlesHeader: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 20
+    },
+    coursesHeader: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -120,15 +219,18 @@ const styles = StyleSheet.create({
     },
     cardsRow: {
         flexDirection: "row",
-        justifyContent: "space-between",
-        flexWrap: "wrap"
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+        width: "90%"
     },
     card: {
+        flexDirection: "row",
         backgroundColor: "#FFE4C4",
-        width: "45%",
-        paddingVertical: 25,
-        paddingHorizontal: 10,
+        width: "100%",
+        padding: 10,
         marginBottom: 20,
+        marginStart: 25,
         borderRadius: 10,
         alignItems: "center",
         justifyContent: "center",
@@ -137,7 +239,9 @@ const styles = StyleSheet.create({
     cardText: {
         fontSize: 14,
         color: "#333",
-        textAlign: "center"
+        textAlign: "center",
+        margin: 10,
+        flex: 1
     }
 });
 
