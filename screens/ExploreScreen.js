@@ -74,7 +74,7 @@ const ExploreScreen = () => {
                     <View style={styles.card}>
                         <Avatar 
                             rounded
-                            size={"medium"}
+                            size={"large"}
                             source={require("../assets/images/pet-dog.jpeg")}
                         />
                         <View style={styles.cardContent}>
@@ -91,6 +91,9 @@ const ExploreScreen = () => {
                         </View>
                     </View>
 
+                    {/*View seperator */}
+                    <View style={styles.separator}></View>
+
                     {/*Courses */}
                     <Chip 
                         title={"Courses"}
@@ -101,7 +104,7 @@ const ExploreScreen = () => {
                     <View style={styles.card}>
                         <Avatar 
                             rounded
-                            size={"medium"}
+                            size={"large"}
                             source={require("../assets/images/pet-dog.jpeg")}
                         />
                         <View style={styles.cardContent}>
@@ -118,6 +121,9 @@ const ExploreScreen = () => {
                         </View>
                     </View>
 
+                     {/*View seperator */}
+                     <View style={styles.separator}></View>
+
                     {/*Exercises */}
                     <Chip 
                         title={"Exercises"}
@@ -128,7 +134,7 @@ const ExploreScreen = () => {
                     <View style={styles.card}>
                         <Avatar 
                             rounded
-                            size={"medium"}
+                            size={"large"}
                             source={require("../assets/images/pet-dog.jpeg")}
                         />
                         <View style={styles.cardContent}>
@@ -145,6 +151,9 @@ const ExploreScreen = () => {
                         </View>
                     </View>
 
+                     {/*View seperator */}
+                     <View style={styles.separator}></View>
+
                     {/*Games */}
                     <Chip 
                         title={"Games"}
@@ -155,7 +164,7 @@ const ExploreScreen = () => {
                     <View style={styles.card}>
                         <Avatar 
                             rounded
-                            size={"medium"}
+                            size={"large"}
                             source={require("../assets/images/pet-dog.jpeg")}
                         />
                         <View style={styles.cardContent}>
@@ -210,7 +219,8 @@ const styles = StyleSheet.create({
     separator: {
         height: 3,
         backgroundColor: "#ccc",
-        marginVertical: 15
+        marginVertical: 15,
+        borderRadius: 25
     },
     arrowButton: {
         padding: 5
@@ -238,13 +248,13 @@ const styles = StyleSheet.create({
     },
     chipTitle: {
         color: "#333",
-        fontSize: 10,
+        fontSize: 15,
         fontWeight: "bold"
     },
     card: {
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#FFF",
+        backgroundColor: "#D3D3D3",
         padding: 25,
         marginVertical: 20,
         borderRadius: 10,
@@ -257,12 +267,12 @@ const styles = StyleSheet.create({
     cardContent: {
         flex: 1,
         flexDirection: "column",
-        marginLeft: 15
+        marginLeft: 5
     },
     cardText: {
         fontSize: 16,
         fontWeight: "bold",
-        marginLeft: 15,
+        marginLeft: 5,
         color: "#333",
         marginBottom: 10
     },
