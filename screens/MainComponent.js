@@ -4,6 +4,7 @@ import { Icon } from "react-native-elements";
 import LandingPage from "./LandingScreen";
 import HomeScreen from "./HomeScreen";
 import ExploreScreen from "./ExploreScreen";
+import PetProfileScreen from "./PetProfileScreen";
 
 {/*Bottom Navigator variable*/}
 const Tab = createBottomTabNavigator();
@@ -47,6 +48,16 @@ const MainComponent = () => {
                     options={{
                         tabBarIcon: ({ color, size}) => {
                         return <Icon name="explore" size={size} color={color} />
+                        },
+                        headerShown: false
+                    }}
+                />
+                <Tab.Screen 
+                    name= "Profile"
+                    component={PetProfileScreen}
+                    options={{
+                        tabBarIcon: ({ color, size}) => {
+                        return <Icon name="cruelty-free" type="material" size={size} color={color} />
                         },
                         headerShown: false
                     }}

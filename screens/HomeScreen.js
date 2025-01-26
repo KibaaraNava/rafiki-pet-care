@@ -1,5 +1,5 @@
 import { Icon, Avatar, Chip } from "react-native-elements";
-import { TouchableOpacity, SafeAreaView, StyleSheet, ScrollView, Text, View, TextInput } from 'react-native';
+import { TouchableOpacity, SafeAreaView, StyleSheet, ScrollView, Text, View, TextInput, Image } from 'react-native';
 
 const HomeScreen = () => {
     
@@ -54,23 +54,26 @@ const HomeScreen = () => {
                             <TouchableOpacity style={styles.profileCard}>
                                 <Avatar 
                                     size={"large"}
-                                    icon={{name: "add", type: "material", color: "#D3D3D3"}}
+                                    source={require("../assets/images/user-profile-1.jpeg")}
                                     overlayContainerStyle={{backgroundColor: "#FFB07C"}}
                                     rounded
                                 />
+                                <Text style={styles.profileCardText}>
+                                    Add a profile
+                                </Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.profileCard}>
                                 <Avatar 
                                     size={"large"}
-                                    icon={{name: "add", type: "material", color: "#D3D3D3"}}
+                                    source={require("../assets/images/user-profile-2.jpeg")}
                                     overlayContainerStyle={{backgroundColor: "#FFB07C"}}
                                     rounded
                                 />
+                                <Text style={styles.profileCardText}>
+                                    Add a profile
+                                </Text>
                             </TouchableOpacity>
                         </View>
-                        <Text style={styles.profileCardText}>
-                                Add a profile
-                        </Text>
                     </View>
 
                 </View>
@@ -93,7 +96,10 @@ const HomeScreen = () => {
                         {/*Articles card row */}
                         <View style={styles.cardsRow}>
                             <View style={styles.card}>
-                                <Icon name="content-cut" size={40} color="#FFb07C" reverse/>
+                                <Image 
+                                    style={styles.cardImage}
+                                    source={require("../assets/images/pet-nutrition.jpeg")}
+                                />
                                 <View style={styles.cardContent}>
                                     <Text style={styles.cardText}>Understanding Pet Nutrition</Text>
                                     <Text style={styles.cardDescription}>
@@ -108,7 +114,10 @@ const HomeScreen = () => {
 
                         <View style={styles.cardsRow}>
                             <View style={styles.card}>
-                                <Icon name="directions-run" size={40} color="#FFb07C" reverse/>
+                                <Image 
+                                    style={styles.cardImage}
+                                    source={require("../assets/images/pet-exercise.jpeg")}
+                                />
                                 <View style={styles.cardContent}>
                                     <Text style={styles.cardText}>Training Your Pet</Text>
                                     <Text style={styles.cardDescription}>
@@ -125,7 +134,7 @@ const HomeScreen = () => {
                     {/*View seperator */}
                     <View style={styles.separator}></View>
 
-                        {/*Services section */}
+                        {/*Reminders section */}
                     <View style={styles.servicesSection}>
                         <View style={styles.servicesHeader}>
                             <Chip 
@@ -141,60 +150,54 @@ const HomeScreen = () => {
                         {/*Services cards row */}
                         <View style={styles.cardsRow}>
                                 <View style={styles.card}>
-                                    <Icon name="pets" size={40} color="#FFb07C" reverse/>
+                                <Image 
+                                    style={styles.cardImage}
+                                    source={require("../assets/images/pet-training.jpeg")}
+                                />
                                     <View style={styles.cardContent}>
-                                        <Text style={styles.cardText}>Pet Profile Management</Text>
+                                        <Text style={styles.cardText}>Walk Tracker</Text>
                                         <Text style={styles.cardDescription}>
                                             Track your pet's vaccinations, vet visits, and milestones.
                                         </Text>
-                                        <Text style={styles.cardLabel}>
-                                            Last Updated: Jan 26, 2025
-                                        </Text>
+                                        <TouchableOpacity style={styles.cardButton}>
+                                            <Text style={styles.buttonText}>Start</Text>
+                                        </TouchableOpacity>
                                     </View>
                                 </View>
                         </View>
 
                         <View style={styles.cardsRow}>
                                 <View style={styles.card}>
-                                    <Icon name="healing" size={40} color="#FFb07C" reverse/>
+                                <Image 
+                                    style={styles.cardImage}
+                                    source={require("../assets/images/pet-health.jpeg")}
+                                />
                                         <View style={styles.cardContent}>
-                                            <Text style={styles.cardText}>Pet HealthCare and Checkup</Text>
+                                            <Text style={styles.cardText}>HealthCare Tracker</Text>
                                             <Text style={styles.cardDescription}>
                                                 Easily book vet appointments and set health reminders.
                                             </Text>
-                                            <Text style={styles.cardLabel}>
-                                                Last Updated: Jan 26, 2025
-                                            </Text>
+                                            <TouchableOpacity style={styles.cardButton}>
+                                                <Text style={styles.buttonText}>Create</Text>
+                                            </TouchableOpacity>
                                         </View>
                                 </View>
                         </View>
 
                         <View style={styles.cardsRow}>
                                 <View style={styles.card}>
-                                    <Icon name="fitness-center" size={40} color="#FFb07C" reverse/>
+                                <Image 
+                                    style={styles.cardImage}
+                                    source={require("../assets/images/pet-weight.jpeg")}
+                                />
                                     <View style={styles.cardContent}>
-                                        <Text style={styles.cardText}>Pet Diet And Exercise</Text>
+                                        <Text style={styles.cardText}>Weight Tracker</Text>
                                         <Text style={styles.cardDescription}>
-                                            Get custom diet plans and daily exercise recommendations.
+                                            Track your pet's weight.
                                         </Text>
-                                        <Text style={styles.cardLabel}>
-                                            Last Updated: Jan 26, 2025
-                                        </Text>
-                                    </View>
-                                </View>
-                        </View>
-
-                        <View style={styles.cardsRow}>
-                                <View style={styles.card}>
-                                    <Icon name="lightbulb" size={40} color="#FFb07C" reverse/>
-                                    <View style={styles.cardContent}>
-                                        <Text style={styles.cardText}>Pet Care Tips</Text>
-                                        <Text style={styles.cardDescription}>
-                                            Expert advice for keeping your pet happy and healthy.
-                                        </Text>
-                                        <Text style={styles.cardLabel}>
-                                            Last Updated: Jan 26, 2025
-                                        </Text>
+                                        <TouchableOpacity style={styles.cardButton}>
+                                            <Text style={styles.buttonText}>Add</Text>
+                                        </TouchableOpacity>
                                     </View>
                                 </View>
                         </View>
@@ -203,7 +206,7 @@ const HomeScreen = () => {
                     {/*View seperator */}
                     <View style={styles.separator}></View>
 
-                    {/*Courses section */}
+                    {/*Exercises section */}
                     <View style={styles.coursesSection}>
                         <View style={styles.coursesHeader}>
                             <Chip 
@@ -220,11 +223,14 @@ const HomeScreen = () => {
                         {/*Articles card row */}
                         <View style={styles.cardsRow}>
                             <View style={styles.card}>
-                                <Icon name="local-hospital" size={40} color="#FFb07C" reverse/>
+                            <Image 
+                                    style={styles.cardImage}
+                                    source={require("../assets/images/pet-training.jpeg")}
+                                />
                                 <View style={styles.cardContent}>
-                                    <Text style={styles.cardText}>Pet First Aid</Text>
+                                    <Text style={styles.cardText}>Basic Exercise Routines</Text>
                                     <Text style={styles.cardDescription}>
-                                        Learn how to handle common emergencies like choking or wounds.
+                                    Discover simple and effective exercises for your pet to stay active and healthy. 
                                     </Text>
                                     <Text style={styles.cardLabel}>
                                         Last Updated: Jan 26, 2025
@@ -235,11 +241,14 @@ const HomeScreen = () => {
 
                         <View style={styles.cardsRow}>
                             <View style={styles.card}>
-                                <Icon name="spa" size={40} color="#FFb07C" reverse/>
+                            <Image 
+                                    style={styles.cardImage}
+                                    source={require("../assets/images/pet-training.jpeg")}
+                                />
                                 <View style={styles.cardContent}>
-                                    <Text style={styles.cardText}>Advanced Pet Care</Text>
+                                    <Text style={styles.cardText}>Advanced Fitness Plans</Text>
                                     <Text style={styles.cardDescription}>
-                                        Master skills to keep your pet healthy and stress-free
+                                    Explore advanced exercise routines that focus on strength, endurance, and agility. 
                                     </Text>
                                     <Text style={styles.cardLabel}>
                                             Last Updated: Jan 26, 2025
@@ -264,7 +273,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
         paddingHorizontal: 20,
         borderRadius: 15,
-        height: "100%"
+        height: "100%",
+        width: "100%"
     },
     scrollContainer: {
         paddingBottom: 20
@@ -320,11 +330,11 @@ const styles = StyleSheet.create({
     profileButtonText: {
         fontSize: 18,
         fontWeight: "bold",
-        color: "#FFB07C"
+        color: "#333"
     },
     registerCardText: {
         fontSize: 16,
-        color: "#FFF",
+        color: "#333",
         textAlign: "center",
         marginBottom: 20
     },
@@ -385,18 +395,17 @@ const styles = StyleSheet.create({
     },
     card: {
         flexDirection: "row",
-        alignItems: "flex-start",
+        alignItems: "center",
         backgroundColor: "#D3D3D3",
-        padding: 25,
-        width: "100%",
+        padding: 15,
         marginVertical: 10,
-        minHeight: 100,
         borderRadius: 10,
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 1.5,
         elevation: 3,
+        width: "100%",
     },
     cardContent: {
         marginLeft: 15,
@@ -417,10 +426,23 @@ const styles = StyleSheet.create({
         lineHeight:20,
         marginBottom: 5
     },
-    cardLabel: {
-        fontSize: 12,
-        color: "#888",
-        marginTop: 5
+    cardButton: {
+        backgroundColor: "#FFB07C",
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        alignItems: "center",
+        marginTop: 10,
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+    cardImage: {
+        width: 100,
+        height: 100,
+        borderRadius: 10,
     },
     separator: {
         height: 3,
@@ -441,10 +463,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#FFF",
-        padding: 10,
+        padding: 5,
         borderRadius: 25,
         marginVertical: 60,
-        marginHorizontal: 30,
+        width: "60%",
+        marginHorizontal: 70,
         shadowColor: "#000",
         shadowOffset: {width: 0, height: 2},
         shadowOpacity: 0.1,

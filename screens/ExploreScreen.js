@@ -105,7 +105,7 @@ const ExploreScreen = () => {
                         <Avatar 
                             rounded
                             size={"large"}
-                            source={require("../assets/images/pet-dog.jpeg")}
+                            source={require("../assets/images/pet-cat.jpeg")}
                         />
                         <View style={styles.cardContent}>
                             <Text style={styles.cardText}>
@@ -135,11 +135,11 @@ const ExploreScreen = () => {
                         <Avatar 
                             rounded
                             size={"large"}
-                            source={require("../assets/images/pet-dog.jpeg")}
+                            source={require("../assets/images/pet-exercise.jpeg")}
                         />
                         <View style={styles.cardContent}>
                             <Text style={styles.cardText}>
-                                Daily Exercise Routines for Pets"
+                                Daily Exercise Routines for Pets
                             </Text>
                             <Text style={styles.cardDescription}>
                                 Discover fun and engaging exercise routines to keep your pets healthy and active.
@@ -165,7 +165,7 @@ const ExploreScreen = () => {
                         <Avatar 
                             rounded
                             size={"large"}
-                            source={require("../assets/images/pet-dog.jpeg")}
+                            source={require("../assets/images/pet-games.jpeg")}
                         />
                         <View style={styles.cardContent}>
                             <Text style={styles.cardText}>
