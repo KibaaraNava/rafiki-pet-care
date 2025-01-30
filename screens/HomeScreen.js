@@ -1,7 +1,10 @@
 import { Icon, Avatar, Chip } from "react-native-elements";
 import { TouchableOpacity, SafeAreaView, StyleSheet, ScrollView, Text, View, TextInput, Image } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+
+const navigation = useNavigation();
     
     return (
         <SafeAreaView style={styles.container}>
@@ -89,7 +92,9 @@ const HomeScreen = () => {
                                 buttonStyle={styles.chipButton}
                                 titleStyle={styles.chipTitle}
                             />
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("ArticlesScreen")}
+                            >
                                 <Text style={styles.seeMoreText}>View More</Text>
                             </TouchableOpacity>
                         </View>
@@ -143,7 +148,9 @@ const HomeScreen = () => {
                                 buttonStyle={styles.chipButton}
                                 titleStyle={styles.chipTitle}
                             />
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("Reminders")}
+                            >
                                 <Text style={styles.seeMoreText}>View More</Text>
                             </TouchableOpacity>
                         </View>
@@ -215,7 +222,9 @@ const HomeScreen = () => {
                                 buttonStyle={styles.chipButton}
                                 titleStyle={styles.chipTitle}
                             />
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("ExercisesScreen")}
+                            >
                                 <Text style={styles.seeMoreText}>View More</Text>
                             </TouchableOpacity>
                         </View>

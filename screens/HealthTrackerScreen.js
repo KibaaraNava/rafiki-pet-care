@@ -1,11 +1,11 @@
-import { useFocusEffect } from "@react-navigation/native"; // Add this import
+import { useFocusEffect } from "@react-navigation/native";
 import { Icon, Chip, Avatar } from "react-native-elements";
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, { Easing, useAnimatedStyle, withSpring, withDecay, useSharedValue, runOnJS } from 'react-native-reanimated';
 
-const ExploreScreen = () => {
+const HealthTrackerScreen = () => {
     const navigation = useNavigation();
     const width = useWindowDimensions();
     const swipeThreshold = 100;
@@ -50,13 +50,13 @@ const ExploreScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollContainer}>
-                {/* Explore Section */}
-                <View style={styles.exploreSection}>
+                {/* Health Tracker Section */}
+                <View style={styles.healthTrackerSection}>
                     <View style={styles.listItem}>
-                        <Text style={styles.exploreText}>Articles</Text>
+                        <Text style={styles.exploreText}>Health Logs</Text>
                         <TouchableOpacity 
                             style={styles.arrowButton}
-                            onPress={() => navigation.navigate("ArticlesScreen")}
+                            onPress={() => navigation.navigate("HealthLogsScreen")}
                         >
                             <Icon name="arrow-forward" size={24} color={"#FFB07C"} />
                         </TouchableOpacity>
@@ -64,10 +64,10 @@ const ExploreScreen = () => {
                     <View style={styles.separator}></View>
 
                     <View style={styles.listItem}>
-                        <Text style={styles.exploreText}>Courses</Text>
+                        <Text style={styles.exploreText}>Tracking Data</Text>
                         <TouchableOpacity 
                             style={styles.arrowButton}
-                            onPress={() => navigation.navigate("CoursesScreen")}
+                            onPress={() => navigation.navigate("TrackingDataScreen")}
                         >
                             <Icon name="arrow-forward" size={24} color={"#FFB07C"} />
                         </TouchableOpacity>
@@ -75,31 +75,20 @@ const ExploreScreen = () => {
                     <View style={styles.separator}></View>
 
                     <View style={styles.listItem}>
-                        <Text style={styles.exploreText}>Exercises</Text>
+                        <Text style={styles.exploreText}>Health Insights</Text>
                         <TouchableOpacity 
                             style={styles.arrowButton}
-                            onPress={() => navigation.navigate("ExercisesScreen")}
-                        >
-                            <Icon name="arrow-forward" size={24} color={"#FFB07C"} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.separator}></View>
-
-                    <View style={styles.listItem}>
-                        <Text style={styles.exploreText}>Games</Text>
-                        <TouchableOpacity 
-                            style={styles.arrowButton}
-                            onPress={() => navigation.navigate("GamesScreen")}
+                            onPress={() => navigation.navigate("HealthInsightsScreen")}
                         >
                             <Icon name="arrow-forward" size={24} color={"#FFB07C"} />
                         </TouchableOpacity>
                     </View>
                 </View>
 
-                {/* Explore More Section */}
-                <View style={styles.exploreMore}>
+                {/* Health Tracker More Section */}
+                <View style={styles.healthTrackerMore}>
                     <Chip 
-                        title={"Articles"}
+                        title={"Health Logs"}
                         containerStyle={styles.chipContainer}
                         buttonStyle={styles.chipButton}
                         titleStyle={styles.chipTitle}
@@ -109,7 +98,7 @@ const ExploreScreen = () => {
                         onGestureEvent={handleGestureEvent}
                         onHandlerStateChange={(event) => {
                             if (event.nativeEvent.state === 5) { // Gesture end state
-                                runOnJS(handleSwipe)(translateX.value, "ArticlesScreen");
+                                runOnJS(handleSwipe)(translateX.value, "HealthLogsScreen");
                             }
                         }}
                     >
@@ -117,18 +106,17 @@ const ExploreScreen = () => {
                             <Avatar 
                                 rounded
                                 size={"large"}
-                                source={require("../assets/images/pet-dog.jpeg")}
+                                source={require("../assets/images/pet-health.jpeg")}
                             />
                             <View style={styles.cardContent}>
                                 <Text style={styles.cardText}>
-                                    Training Tips For New Pet Owners
+                                    Track Your Health Progress
                                 </Text>
                                 <Text style={styles.cardDescription}>
-                                    Learn how to take care of your furry friends with simple training techniques for beginners.
+                                    Keep track of your fitness goals with personalized health logs and insights.
                                 </Text>
                                 <TouchableOpacity style={styles.arrowButtonExplore}>
-                                    
-                                    <Text style={styles.arrowText}>Swipe To See More Articles</Text>
+                                    <Text style={styles.arrowText}>Swipe To See More Health Logs</Text>
                                 </TouchableOpacity>
                             </View>
                         </Animated.View>
@@ -137,7 +125,7 @@ const ExploreScreen = () => {
                     <View style={styles.separator}></View>
 
                     <Chip 
-                        title={"Courses"}
+                        title={"Tracking Data"}
                         containerStyle={styles.chipContainer}
                         buttonStyle={styles.chipButton}
                         titleStyle={styles.chipTitle}
@@ -147,7 +135,7 @@ const ExploreScreen = () => {
                         onGestureEvent={handleGestureEvent}
                         onHandlerStateChange={(event) => {
                             if (event.nativeEvent.state === 5) { // Gesture end state
-                                runOnJS(handleSwipe)(translateX.value, "CoursesScreen");
+                                runOnJS(handleSwipe)(translateX.value, "TrackingDataScreen");
                             }
                         }}
                     >
@@ -155,18 +143,17 @@ const ExploreScreen = () => {
                             <Avatar 
                                 rounded
                                 size={"large"}
-                                source={require("../assets/images/pet-cat.jpeg")}
+                                source={require("../assets/images/pet-duck.jpeg")}
                             />
                             <View style={styles.cardContent}>
                                 <Text style={styles.cardText}>
-                                    Essential Pet Care Courses
+                                    Analyze Your Health Data
                                 </Text>
                                 <Text style={styles.cardDescription}>
-                                    Sign up for comprehensive courses that teach you about pet nutrition, health, and training.
+                                    Explore detailed insights on your health progress with comprehensive data analysis.
                                 </Text>
                                 <TouchableOpacity style={styles.arrowButtonExplore}>
-                                    
-                                    <Text style={styles.arrowText}>Swipe To See More Courses</Text>
+                                    <Text style={styles.arrowText}>Swipe To See More Tracking Data</Text>
                                 </TouchableOpacity>
                             </View>
                         </Animated.View>
@@ -175,7 +162,7 @@ const ExploreScreen = () => {
                     <View style={styles.separator}></View>
 
                     <Chip 
-                        title={"Exercises"}
+                        title={"Health Insights"}
                         containerStyle={styles.chipContainer}
                         buttonStyle={styles.chipButton}
                         titleStyle={styles.chipTitle}
@@ -185,7 +172,7 @@ const ExploreScreen = () => {
                         onGestureEvent={handleGestureEvent}
                         onHandlerStateChange={(event) => {
                             if (event.nativeEvent.state === 5) { // Gesture end state
-                                runOnJS(handleSwipe)(translateX.value, "ExercisesScreen");
+                                runOnJS(handleSwipe)(translateX.value, "HealthInsightsScreen");
                             }
                         }}
                     >
@@ -193,56 +180,17 @@ const ExploreScreen = () => {
                             <Avatar 
                                 rounded
                                 size={"large"}
-                                source={require("../assets/images/pet-exercise.jpeg")}
+                                source={require("../assets/images/pet-training.jpeg")}
                             />
                             <View style={styles.cardContent}>
                                 <Text style={styles.cardText}>
-                                    Daily Exercise Routines for Pets
+                                    Get Expert Health Tips
                                 </Text>
                                 <Text style={styles.cardDescription}>
-                                    Discover fun and engaging exercise routines to keep your pets healthy and active.
+                                    Learn from the experts about how to improve your health and achieve your wellness goals.
                                 </Text>
                                 <TouchableOpacity style={styles.arrowButtonExplore}>
-                                    
-                                    <Text style={styles.arrowText}>Swipe To See More Exercises</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </Animated.View>
-                    </PanGestureHandler>
-
-                    <View style={styles.separator}></View>
-
-                    <Chip 
-                        title={"Games"}
-                        containerStyle={styles.chipContainer}
-                        buttonStyle={styles.chipButton}
-                        titleStyle={styles.chipTitle}
-                    />
-
-                    <PanGestureHandler
-                        onGestureEvent={handleGestureEvent}
-                        onHandlerStateChange={(event) => {
-                            if (event.nativeEvent.state === 5) { // Gesture end state
-                                runOnJS(handleSwipe)(translateX.value, "GamesScreen");
-                            }
-                        }}
-                    >
-                        <Animated.View style={[styles.card, createSwipeAnimation()]}>
-                            <Avatar 
-                                rounded
-                                size={"large"}
-                                source={require("../assets/images/pet-games.jpeg")}
-                            />
-                            <View style={styles.cardContent}>
-                                <Text style={styles.cardText}>
-                                    Interactive Games for Your Pets
-                                </Text>
-                                <Text style={styles.cardDescription}>
-                                    Find exciting games to entertain and bond with your pets.
-                                </Text>
-                                <TouchableOpacity style={styles.arrowButtonExplore}>
-                                    
-                                    <Text style={styles.arrowText}>Swipe To See More Games</Text>
+                                    <Text style={styles.arrowText}>Swipe To See More Health Insights</Text>
                                 </TouchableOpacity>
                             </View>
                         </Animated.View>
@@ -256,16 +204,16 @@ const ExploreScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#D3D3D3"
+        backgroundColor: "#F5F5F5", // Same background color as the Health Tracker card in Explore screen
     },
     scrollContainer: {
         paddingBottom: 20
     },
-    exploreSection: {
+    healthTrackerSection: {
         marginTop: 30,
         paddingHorizontal: 20
     },
-    exploreMore: {
+    healthTrackerMore: {
         marginTop: 30,
         paddingHorizontal: 20,
         backgroundColor: "#20B2AA", // You can update this if needed to match your previous color
@@ -275,7 +223,7 @@ const styles = StyleSheet.create({
     exploreText: {
         fontSize: 18,
         fontWeight: "bold",
-        color: "#333" // Ensure this is the correct text color you were using
+        color: "#333"
     },
     listItem: {
         flexDirection: "row",
@@ -297,7 +245,7 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start"
     },
     arrowText: {
-        color: "#333", // Make sure this matches your desired color
+        color: "#333",
         textAlign: "center",
         fontSize: 14,
         fontWeight: "bold",
@@ -309,17 +257,17 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start"
     },
     chipButton: {
-        backgroundColor: "#FFB07C", // Update this to match your preferred color for chips
+        backgroundColor: "#FFB07C",
         borderRadius: 10
     },
     chipTitle: {
-        color: "#333", // Use the color you previously preferred for chip text
+        color: "#333",
         fontSize: 14,
         fontWeight: "bold"
     },
     card: {
         marginTop: 10,
-        backgroundColor: "#F5F5F5", // Update to match your card background color if needed
+        backgroundColor: "#F5F5F5", // Same background color for the card
         borderRadius: 15,
         padding: 10,
         marginHorizontal: 20
@@ -330,17 +278,15 @@ const styles = StyleSheet.create({
     cardText: {
         fontSize: 16,
         fontWeight: "bold",
-        color: "#333" // Make sure this is the desired color for card text
+        color: "#333"
     },
     cardDescription: {
         fontSize: 14,
-        color: "#777", // Adjust this for card description color if necessary
+        color: "#777",
         marginVertical: 5
     }
 });
 
-
-export default ExploreScreen;
-
+export default HealthTrackerScreen;
 
 

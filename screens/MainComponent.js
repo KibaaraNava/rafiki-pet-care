@@ -7,6 +7,15 @@ import HomeScreen from "./HomeScreen";
 import ExploreScreen from "./ExploreScreen";
 import PetProfileScreen from "./PetProfileScreen";
 import LoginScreen from "./LoginScreen";
+import ArticlesScreen from "./ArticlesScreen";
+import CoursesScreen from "./CoursesScreen";
+import ExercisesScreen from "./ExercisesScreen";
+import GamesScreen from "./GamesScreen";
+import RemindersScreen from "./RemindersScreen";
+import WalkTrackerScreen from "./WalkTrackerScreen";
+import HealthTrackerScreen from "./HealthTrackerScreen";
+import WeightTrackerScreen from "./WeightTrackerScreen";
+import VetAppointmentsScreen from "./VetAppointmentsScreen";
 
 
 {/*Bottom Navigator variable*/}
@@ -36,6 +45,170 @@ const LandingStack = () => {
             component={LoginScreen}
             options={{
                 title: "Login",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="ExploreScreen"
+            component={ExploreScreen}
+            options={{
+                title: "Login",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="ArticlesScreen"
+            component={ArticlesScreen}
+            options={{
+                title: "Articles",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="CoursesScreen"
+            component={CoursesScreen}
+            options={{
+                title: "Courses",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="ExercisesScreen"
+            component={ExercisesScreen}
+            options={{
+                title: "Exercises",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="GamesScreen"
+            component={GamesScreen}
+            options={{
+                title: "Games",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+    </Stack.Navigator>
+    );
+};
+
+const ExploreStack = () => {
+    return (
+        <Stack.Navigator>
+        <Stack.Screen 
+            name="ExploreScreen"
+            component={ExploreScreen}
+            options={{
+                title: "Explore",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="ArticlesScreen"
+            component={ArticlesScreen}
+            options={{
+                title: "Articles",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="CoursesScreen"
+            component={CoursesScreen}
+            options={{
+                title: "Courses",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="ExercisesScreen"
+            component={ExercisesScreen}
+            options={{
+                title: "Exercises",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="GamesScreen"
+            component={GamesScreen}
+            options={{
+                title: "Games",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+    </Stack.Navigator>
+    );
+};
+
+const ReminderStack = () => {
+    return (
+        <Stack.Navigator>
+        <Stack.Screen 
+            name="ReminderScreen"
+            component={RemindersScreen}
+            options={{
+                title: "Reminders",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="WalkTrackerScreen"
+            component={WalkTrackerScreen}
+            options={{
+                title: "Walk Tracker",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="HealthTrackerScreen"
+            component={HealthTrackerScreen}
+            options={{
+                title: "Health Tracker",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="WeightTrackerScreen"
+            component={WeightTrackerScreen}
+            options={{
+                title: "Weight Tracker",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+        <Stack.Screen 
+            name="VetAppointmentsScreen"
+            component={VetAppointmentsScreen}
+            options={{
+                title: "Add Appointment",
                 headerStyle: {backgroundColor: "#FFB07C"},
                 headerTintColor: "#FFF",
                 headerTitleStyle: {fontWeight: "bold"}
@@ -73,8 +246,18 @@ const MainComponent = () => {
                     }}
                 />
                 <Tab.Screen 
+                    name= "Reminders"
+                    component={ReminderStack}
+                    options={{
+                        tabBarIcon: ({ color, size}) => {
+                        return <Icon name="pets" type="material" size={size} color={color} />
+                        },
+                        headerShown: false
+                    }}
+                />
+                <Tab.Screen 
                     name= "Explore"
-                    component={ExploreScreen}
+                    component={ExploreStack}
                     options={{
                         tabBarIcon: ({ color, size}) => {
                         return <Icon name="explore" size={size} color={color} />
