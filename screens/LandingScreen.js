@@ -1,6 +1,7 @@
 import { Icon } from "react-native-elements";
 import { Image, SafeAreaView, StyleSheet, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import LoginScreen from "./LoginScreen";
 
 
 const petImages = [
@@ -52,7 +53,10 @@ const LandingPage = () => {
                             <View style={styles.separator}></View>
 
                             {/*Login and Sign-In Button*/}
-                        <TouchableOpacity style={styles.loginButton}>
+                        <TouchableOpacity 
+                            style={styles.loginButton}
+                            onPress={() => navigation.navigate("LoginScreen")}
+                        >
                             <Icon name="login" size={30} color={"#FFF"}/>
                             <Text style={styles.exploreButtonText}>Login</Text>
                         </TouchableOpacity>
@@ -115,20 +119,31 @@ const styles = StyleSheet.create({
         width: "90%"
     },
     exploreButton: {
-        marginBottom: 15,
-        paddingVertical : 8,
-        width: "70%",
-        backgroundColor: "#D3D3D3",
-        borderRadius: 15,
+        flexDirection: "row",
         alignItems: "center",
+        justifyContent: "center",
+        paddingVertical: 12,
+        width: "70%",
+        backgroundColor: "#FF6F61", // Vibrant gradient-like orange
+        borderRadius: 25,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
         elevation: 5
     },
     loginButton: {
-        width: "70%",
-        paddingVertical: 8,
-        backgroundColor: "#D3D3D3",
-        borderRadius: 15,
+        flexDirection: "row",
         alignItems: "center",
+        justifyContent: "center",
+        paddingVertical: 12,
+        width: "70%",
+        backgroundColor: "#4CAAB1", // Cool teal gradient
+        borderRadius: 25,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
         elevation: 5
     },
     exploreButtonText: {

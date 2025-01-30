@@ -1,19 +1,49 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
 import LandingPage from "./LandingScreen";
 import HomeScreen from "./HomeScreen";
 import ExploreScreen from "./ExploreScreen";
 import PetProfileScreen from "./PetProfileScreen";
+import LoginScreen from "./LoginScreen";
+
 
 {/*Bottom Navigator variable*/}
 const Tab = createBottomTabNavigator();
+
+{/*Stack Navigator */}
+const Stack = createStackNavigator();
 
 {/*screeOptions variable*/}
 const screenOptions= {
     tabBarActiveTintColor: "#FFB07C",
     tabBarInactiveTintColor: "#888"
-}
+};
+
+const LandingStack = () => {
+    return (
+        <Stack.Navigator>
+        <Stack.Screen 
+            name="LandingPage"
+            component={LandingPage}
+            options={{
+                headerShown: false
+            }}
+        />
+        <Stack.Screen 
+            name="LoginScreen"
+            component={LoginScreen}
+            options={{
+                title: "Login",
+                headerStyle: {backgroundColor: "#FFB07C"},
+                headerTintColor: "#FFF",
+                headerTitleStyle: {fontWeight: "bold"}
+            }}
+        />
+    </Stack.Navigator>
+    );
+};
 
 const MainComponent = () => {
     return (
@@ -23,13 +53,13 @@ const MainComponent = () => {
             >
                 <Tab.Screen 
                     name= "Welcome"
-                    component={LandingPage}
+                    component={LandingStack}
                     options={{
                         tabBarIcon: ({  color, size}) => {
                             return <Icon name="emoji-people" size={size} color={color} />
                         },
                         headerShown: false,
-                        tabBarStyle: {display: "none"}
+                        
                     }}
                 />
                 <Tab.Screen 
